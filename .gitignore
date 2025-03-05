@@ -26,6 +26,7 @@ venv.bak/
 .env.development.local
 .env.test.local
 .env.production.local
+.streamlit
 
 # Database
 *.sqlite3
