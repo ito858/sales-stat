@@ -12,8 +12,10 @@ st.set_page_config(page_title="Sales Dashboard", layout="wide")
 # 标题
 st.title("Sales Analytics Dashboard")
 
+# choose a connection_name from screte
+connection_name = "database-1"
 # Test the connection
-if connection.test_mysql_connection("database-1"):
+if connection.test_mysql_connection(connection_name):
     st.success("MySQL connection is working properly!")
 else:
     st.error("Failed to connect to MySQL database. Please check your connection settings.")
@@ -48,8 +50,8 @@ def get_data(year):
         Month;
     """
 #    data = utils.validate_year(utils.execute_query(qstr),'year', year)
-   data = utils.execute_query(qstr)
    st.code(qstr, language='sql')
+   data = utils.execute_query(qstr, connection_name)
    end_time = time.time()
    exct_time = end_time - start_time
    st.success(f"Loading Data takes: {exct_time: .4f} seconds")

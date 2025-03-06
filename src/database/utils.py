@@ -1,8 +1,8 @@
 import pandas as pd
 from .connection import get_connection
 
-def execute_query(query):
-    connection = get_connection()
+def execute_query(query, connection_name):
+    connection = get_connection(connection_name)
     if connection:
         try:
 #             df = pd.read_sql(query, connection)
